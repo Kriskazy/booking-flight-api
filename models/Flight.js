@@ -1,1 +1,1 @@
-exports.exampleModel = [];
+const exampleModel = [];
