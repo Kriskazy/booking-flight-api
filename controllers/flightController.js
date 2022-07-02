@@ -62,6 +62,10 @@ exports.updateFlight = (req, res) => {
 // Delete Flight
 exports.deleteFlight = (req, res) => {
   const { id } = req.params;
-  const bookingLeft = flightDetails.filter((flight) => flight.id !== id);
-  res.json(bookingLeft);
+  const booking = flightDetails.filter((flight) => flight.id === id);
+  flightDetails.splice(flightDetails.indexOf(booking), 1);
+  res.status(200).json({
+    message: "Flight deleted",
+    booking,
+  });
 };
